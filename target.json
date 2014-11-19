@@ -1,7 +1,8 @@
 {
-  "name": "k64f-gcc",
+  "name": "frdm-k64f-gcc",
   "version": "0.0.1",
   "similarTo": [
+    "frdm-k64f",
     "k64f",
     "ksdk-mcu",
     "mk64fn1m0vmd12",
