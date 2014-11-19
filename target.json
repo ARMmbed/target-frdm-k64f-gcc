@@ -1,6 +1,6 @@
 {
   "name": "k64f-gcc",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "similarTo": [
     "k64f",
     "ksdk-mcu",
