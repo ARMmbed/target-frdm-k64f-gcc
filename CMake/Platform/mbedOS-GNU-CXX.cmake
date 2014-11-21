@@ -19,7 +19,7 @@ set(CMAKE_CXX_CREATE_STATIC_LIBRARY "<CMAKE_AR> -cr <LINK_FLAGS> <TARGET> <OBJEC
 set(CMAKE_CXX_COMPILE_OBJECT        "<CMAKE_CXX_COMPILER> ${YOTTA_TARGET_DEFINITIONS} <DEFINES> <FLAGS> -o <OBJECT> -c <SOURCE>")
 set(CMAKE_CXX_LINK_EXECUTABLE       "<CMAKE_CXX_COMPILER> <CMAKE_CXX_LINK_FLAGS> <LINK_FLAGS> <OBJECTS> <LINK_LIBRARIES> -Wl,--start-group -lnosys -lstdc++ -lsupc++ -lm -lc -lgcc -lnosys -lnosys -lstdc++ -lsupc++ -lm -lc -lgcc -lnosys -Wl,--end-group -o <TARGET>")
 
-set(CMAKE_CXX_FLAGS_INIT "${CMAKE_C_FLAGS_INIT} -fno-exceptions -fno-unwind-tables")
+set(CMAKE_CXX_FLAGS_INIT "${_C_FAMILY_FLAGS_INIT} -fno-exceptions -fno-unwind-tables")
 set(CMAKE_CXX_FLAGS_DEBUG_INIT          "${CMAKE_CXX_FLAGS_INIT} -g")
 set(CMAKE_CXX_FLAGS_MINSIZEREL_INIT     "${CMAKE_CXX_FLAGS_INIT} -Os -DNDEBUG")
 set(CMAKE_CXX_FLAGS_RELEASE_INIT        "${CMAKE_CXX_FLAGS_INIT} -Os -DNDEBUG")

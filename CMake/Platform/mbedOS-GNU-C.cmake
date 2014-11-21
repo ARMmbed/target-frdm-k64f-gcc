@@ -10,7 +10,8 @@ set(CMAKE_C_COMPILE_OBJECT        "<CMAKE_C_COMPILER> ${YOTTA_TARGET_DEFINITIONS
 set(CMAKE_C_LINK_EXECUTABLE       "<CMAKE_C_COMPILER> <CMAKE_C_LINK_FLAGS> <LINK_FLAGS> <OBJECTS> <LINK_LIBRARIES> -Wl,--start-group -lnosys -lm -lc -lgcc -lnosys -lnosys -lm -lc -lgcc -lnosys -Wl,--end-group -o <TARGET>")
 
 
-set(CMAKE_C_FLAGS_INIT "-std=c99 -fno-exceptions -fno-unwind-tables -mcpu=cortex-m4 -mthumb -ffunction-sections -fdata-sections -Wall -Wextra -D__thumb2__")
+set(_C_FAMILY_FLAGS_INIT "-fno-exceptions -fno-unwind-tables -mcpu=cortex-m4 -mthumb -ffunction-sections -fdata-sections -Wall -Wextra -D__thumb2__")
+set(CMAKE_C_FLAGS_INIT                "-std=c99 ${_C_FAMILY_FLAGS_INIT}")
 set(CMAKE_C_FLAGS_DEBUG_INIT          "${CMAKE_C_FLAGS_INIT} -g")
 set(CMAKE_C_FLAGS_MINSIZEREL_INIT     "${CMAKE_C_FLAGS_INIT} -Os -DNDEBUG")
 set(CMAKE_C_FLAGS_RELEASE_INIT        "${CMAKE_C_FLAGS_INIT} -Os -DNDEBUG")
