@@ -17,11 +17,16 @@
   ],
   "toolchain": "CMake/toolchain.cmake",
   "debug-server": [
-    "echo",
-    "debug server command not defined"
+    "JLinkGDBServer",
+    "-if",
+    "SWD",
+    "-device",
+    "MK64FN1M0xxx12"
   ],
   "debug": [
-    "echo",
-    "debug command not defined"
+    "arm-none-eabi-gdb",
+    "$program",
+    "--eval",
+    "target remote localhost:2331"
   ]
 }
