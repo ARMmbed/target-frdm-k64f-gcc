@@ -1,6 +1,6 @@
 {
   "name": "frdm-k64f-gcc",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "similarTo": [
     "frdm-k64f",
     "k64f",
