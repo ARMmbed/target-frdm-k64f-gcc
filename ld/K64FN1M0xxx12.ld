@@ -137,6 +137,10 @@ SECTIONS
 
     .bss :
     {
+        /* the uVisor bss is put before the symbol
+	 * __bss_start__ because it must not be
+	 * zeroed at startup (the uVisor itself takes
+	 * care of it) */
         KEEP(*(.bss.uvisor))
         __bss_start__ = .;
         *(.bss*)
