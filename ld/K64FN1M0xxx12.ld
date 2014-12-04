@@ -16,6 +16,8 @@ MEMORY
  * _reset_init : Entry of reset handler
  *
  * It defines following symbols, which code can use without definition:
+ * __uvisor_cfgtbl_start
+ * __uvisor_cfgtbl_end
  * __exidx_start
  * __exidx_end
  * __etext
@@ -44,8 +46,6 @@ SECTIONS
     {
         __vector_table = .;
         KEEP(*(.vector_table))
-        *(.text.Reset_Handler)
-        *(.text.System_Init)
          . = ALIGN(4);
     } > VECTORS
 
@@ -57,7 +57,14 @@ SECTIONS
 
     .text :
     {
-        *(.text*)
+        /* uVisor code and data */
+        *(.text.uvisor)
+        PROVIDE(__uvisor_cfgtbl_start = .);
+        KEEP(*(.uvisor.cfgtbl*))
+        PROVIDE(__uvisor_cfgtbl_end = .);
+        . = ALIGN(5);
+
+	*(.text*)
 
         KEEP(*(.init))
         KEEP(*(.fini))
@@ -130,6 +137,7 @@ SECTIONS
 
     .bss :
     {
+        KEEP(*(.bss.uvisor))
         __bss_start__ = .;
         *(.bss*)
         *(COMMON)
