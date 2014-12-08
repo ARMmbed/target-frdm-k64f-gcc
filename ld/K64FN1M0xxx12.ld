@@ -7,7 +7,7 @@ MEMORY
   VECTORS (rx)          : ORIGIN = 0x00000000, LENGTH = 0x00000400
   FLASH_PROTECTION (rx) : ORIGIN = 0x00000400, LENGTH = 0x00000010
   FLASH (rx)            : ORIGIN = 0x00000410, LENGTH = 0x00100000 - 0x00000410
-  RAM (rwx)             : ORIGIN = 0x1FFF0198, LENGTH = 0x00040000 - 0x00000198
+  RAM (rwx)             : ORIGIN = 0x1FFF0200, LENGTH = 0x00040000 - 0x00000200
 }
 
 /* Linker script to place sections and symbol values. Should be used together
@@ -16,8 +16,6 @@ MEMORY
  * _reset_init : Entry of reset handler
  *
  * It defines following symbols, which code can use without definition:
- * __uvisor_cfgtbl_start
- * __uvisor_cfgtbl_end
  * __exidx_start
  * __exidx_end
  * __etext
@@ -55,16 +53,34 @@ SECTIONS
          . = ALIGN(4);
     } > FLASH_PROTECTION
 
+    /* ensure that uvisor bss is at the beginning of memory */
+    .uvisor.bss (NOLOAD):
+    {
+        /* protected uvisor SRAM starts here */
+        KEEP(*(.uvisor.bss.main))
+        KEEP(*(.uvisor.bss.stack))
+        __uvisor_bss_start = .;
+        *(.uvisor.bss*)
+        __uvisor_bss_end = .;
+    } > RAM
+
+    .uvisor.data : AT(__uvisor_cfgtbl_end)
+    {
+        __uvisor_data_src = LOADADDR(.uvisor.data);
+
+        . = ALIGN(32);
+        __uvisor_data_start = .;
+        *(.uvisor.data)
+        . = ALIGN(32);
+        __uvisor_data_end = .;
+    } >RAM
+
     .text :
     {
         /* uVisor code and data */
-        *(.text.uvisor)
-        PROVIDE(__uvisor_cfgtbl_start = .);
-        KEEP(*(.uvisor.cfgtbl*))
-        PROVIDE(__uvisor_cfgtbl_end = .);
-        . = ALIGN(5);
+        *(.uvisor.main)
 
-	*(.text*)
+        *(.text*)
 
         KEEP(*(.init))
         KEEP(*(.fini))
@@ -93,17 +109,17 @@ SECTIONS
         *(.ARM.extab* .gnu.linkonce.armextab.*)
     } > FLASH
 
-    __exidx_start = .;
     .ARM.exidx :
     {
+       __exidx_start = .;
         *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+       __exidx_end = .;
     } > FLASH
-    __exidx_end = .;
 
-    __etext = .;
-
-    .data : AT (__etext)
+    .data :
     {
+        PROVIDE( __etext = LOADADDR(.data) );
+
         __data_start__ = .;
         *(vtable)
         *(.data*)
@@ -121,7 +137,6 @@ SECTIONS
         KEEP(*(.init_array))
         PROVIDE_HIDDEN (__init_array_end = .);
 
-
         . = ALIGN(4);
         /* finit data */
         PROVIDE_HIDDEN (__fini_array_start = .);
@@ -129,26 +144,41 @@ SECTIONS
         KEEP(*(.fini_array))
         PROVIDE_HIDDEN (__fini_array_end = .);
 
-        . = ALIGN(4);
         /* All data end */
+        . = ALIGN(32);
         __data_end__ = .;
 
-    } > RAM
+    } >RAM AT>FLASH
 
-    .bss :
+    /* put uvisor data flash section at the end of flash */
+    .uvisor.secure :
     {
-        /* the uVisor bss is put before the symbol
-	 * __bss_start__ because it must not be
-	 * zeroed at startup (the uVisor itself takes
-	 * care of it) */
-        KEEP(*(.bss.uvisor))
+        . = ALIGN(32);
+        __uvisor_secure_start = .;
+        KEEP(*(.uvisor.secure.keep))
+        *(.uvisor.secure)
+        . = ALIGN(32);
+
+        __uvisor_cfgtbl_start = .;
+        KEEP(*(.uvisor.cfgtbl*))
+        __uvisor_cfgtbl_end = .;
+    } >FLASH
+
+    .uvisor.end (NOLOAD): AT( LOADADDR(.uvisor.data) + SIZEOF(.uvisor.data) )
+    {
+        . = ALIGN(1024);
+        __uvisor_secure_end = .;
+    } >FLASH
+
+    .bss (NOLOAD):
+    {
         __bss_start__ = .;
         *(.bss*)
         *(COMMON)
         __bss_end__ = .;
     } > RAM
 
-    .heap :
+    .heap (NOLOAD):
     {
         __end__ = .;
         end = __end__;
@@ -159,7 +189,7 @@ SECTIONS
     /* .stack_dummy section doesn't contains any symbols. It is only
      * used for linker to calculate size of stack sections, and assign
      * values to stack symbols later */
-    .stack_dummy :
+    .stack_dummy (NOLOAD):
     {
         *(.stack)
     } > RAM
@@ -173,4 +203,3 @@ SECTIONS
     /* Check if data + heap + stack exceeds RAM limit */
     ASSERT(__StackLimit >= __HeapLimit, "region RAM overflowed with stack")
 }
-
