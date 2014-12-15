@@ -26,12 +26,6 @@ set(CMAKE_ASM_FLAGS_RELEASE_INIT        "${CMAKE_ASM_FLAGS_INIT} -Os -DNDEBUG")
 set(CMAKE_ASM_FLAGS_RELWITHDEBINFO_INIT "${CMAKE_ASM_FLAGS_INIT} -Os -g -DNDEBUG")
 set(CMAKE_INCLUDE_SYSTEM_FLAG_ASM  "-isystem ")
 
-
-# include paths for standard libs (use gcc's)
-exec_program("${CMAKE_C_COMPILER} -print-libgcc-file-name" OUTPUT_VARIABLE _ARM_GNU_LIBGCC)
-get_filename_component(_ARM_GNU_GCC_DIR ${CMAKE_C_COMPILER} DIRECTORY)
-get_filename_component(_ARM_GNU_LIBGCC_DIR ${_ARM_GNU_LIBGCC} DIRECTORY)
-
 # set link flags
 set(CMAKE_C_LINK_FLAGS "")
 set(CMAKE_MODULE_LINKER_FLAGS_INIT
