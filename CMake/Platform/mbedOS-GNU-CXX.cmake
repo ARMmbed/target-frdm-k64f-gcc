@@ -1,4 +1,4 @@
-# Copyright (C) 2014 ARM Limited. All rights reserved. 
+# Copyright (C) 2014 ARM Limited. All rights reserved.
 
 message("mbedOS-GNU-CXX.cmake included")
 
@@ -25,4 +25,3 @@ set(CMAKE_CXX_FLAGS_MINSIZEREL_INIT     "${CMAKE_CXX_FLAGS_INIT} -Os -DNDEBUG")
 set(CMAKE_CXX_FLAGS_RELEASE_INIT        "${CMAKE_CXX_FLAGS_INIT} -Os -DNDEBUG")
 set(CMAKE_CXX_FLAGS_RELWITHDEBINFO_INIT "${CMAKE_CXX_FLAGS_INIT} -Os -g -DNDEBUG")
 set(CMAKE_INCLUDE_SYSTEM_FLAG_CXX "-isystem ")
-
