@@ -1,6 +1,6 @@
 {
   "name": "frdm-k64f-gcc",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Official mbed build target for the mbed frdm-k64f development board.",
   "licenses": [
     {
@@ -9,7 +9,11 @@
     }
   ],
   "keywords": [
-      "mbed-target:k64f", "mbed-official", "k64f", "frdm-k64f", "gcc"
+    "mbed-target:k64f",
+    "mbed-official",
+    "k64f",
+    "frdm-k64f",
+    "gcc"
   ],
   "similarTo": [
     "frdm-k64f",
@@ -28,5 +32,10 @@
     "eth-k64f"
   ],
   "toolchain": "CMake/toolchain.cmake",
-  "debug": ["valinor", "--target", "K64F", "$program"]
+  "debug": [
+    "valinor",
+    "--target",
+    "K64F",
+    "$program"
+  ]
 }
