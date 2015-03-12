@@ -1,6 +1,6 @@
 {
   "name": "frdm-k64f-gcc",
-  "version": "0.0.10",
+  "version": "0.0.12",
   "similarTo": [
     "frdm-k64f",
     "k64f",
@@ -13,6 +13,9 @@
     "armv7-m",
     "arm",
     "gcc",
+    "lwip",
+    "lwip-k64f",
+    "eth-k64f",
     "*"
   ],
   "toolchain": "CMake/toolchain.cmake",
