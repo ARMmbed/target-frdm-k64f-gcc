@@ -1,6 +1,16 @@
 {
   "name": "frdm-k64f-gcc",
   "version": "0.0.12",
+  "description": "Official mbed build target for the mbed frdm-k64f development board.",
+  "licenses": [
+    {
+      "url": "https://spdx.org/licenses/Apache-2.0",
+      "type": "Apache-2.0"
+    }
+  ],
+  "keywords": [
+      "mbed-target:k64f", "mbed-official", "k64f", "frdm-k64f", "gcc"
+  ],
   "similarTo": [
     "frdm-k64f",
     "k64f",
