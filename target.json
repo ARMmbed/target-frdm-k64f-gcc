@@ -15,21 +15,8 @@
     "gcc",
     "lwip",
     "lwip-k64f",
-    "eth-k64f",
-    "*"
+    "eth-k64f"
   ],
   "toolchain": "CMake/toolchain.cmake",
-  "debug-server": [
-    "JLinkGDBServer",
-    "-if",
-    "SWD",
-    "-device",
-    "MK64FN1M0xxx12"
-  ],
-  "debug": [
-    "arm-none-eabi-gdb",
-    "$program",
-    "--eval",
-    "target remote localhost:2331"
-  ]
+  "debug": ["valinor", "--target", "K64F", "$program"]
 }
