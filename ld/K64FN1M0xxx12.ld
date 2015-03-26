@@ -160,6 +160,7 @@ SECTIONS
         . = ALIGN(32);
 
         __uvisor_cfgtbl_start = .;
+        KEEP(*(.uvisor.cfgtbl_first*))
         KEEP(*(.uvisor.cfgtbl*))
         __uvisor_cfgtbl_end = .;
     } >FLASH
