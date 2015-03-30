@@ -1,6 +1,6 @@
 {
   "name": "frdm-k64f-gcc",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "Official mbed build target for the mbed frdm-k64f development board.",
   "licenses": [
     {
@@ -39,17 +39,17 @@
     "$program"
   ],
   "scripts": {
-      "debug": [
-        "valinor",
-        "--target",
-        "K64F",
-        "$program"
-      ],
-      "test": [
-        "mbed_test_wrapper",
-        "--target",
-        "K64F",
-        "$program"
-      ]
+    "debug": [
+      "valinor",
+      "--target",
+      "K64F",
+      "$program"
+    ],
+    "test": [
+      "mbed_test_wrapper",
+      "--target",
+      "K64F",
+      "$program"
+    ]
   }
 }
