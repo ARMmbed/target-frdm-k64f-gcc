@@ -37,5 +37,19 @@
     "--target",
     "K64F",
     "$program"
-  ]
+  ],
+  "scripts": {
+      "debug": [
+        "valinor",
+        "--target",
+        "K64F",
+        "$program"
+      ],
+      "test": [
+        "mbed_test_wrapper",
+        "--target",
+        "K64F",
+        "$program"
+      ]
+  }
 }
