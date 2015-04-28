@@ -31,7 +31,12 @@
     "lwip-k64f",
     "eth-k64f"
   ],
-  "toolchain": "CMake/toolchain.cmake",
+  "inherits": {
+    "mbed-gcc": "*"
+  },
+  "toolchain": "toolchain_inherit_simulated.cmake",
+  "config": {
+  },
   "debug": [
     "valinor",
     "--target",
