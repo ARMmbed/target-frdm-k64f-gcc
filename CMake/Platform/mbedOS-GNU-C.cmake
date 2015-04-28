@@ -12,18 +12,18 @@ set(CMAKE_C_LINK_EXECUTABLE       "<CMAKE_C_COMPILER> <CMAKE_C_LINK_FLAGS> <LINK
 
 set(_C_FAMILY_FLAGS_INIT "-fno-exceptions -fno-unwind-tables -mcpu=cortex-m4 -mthumb -ffunction-sections -fdata-sections -Wall -Wextra -D__thumb2__")
 set(CMAKE_C_FLAGS_INIT                "-std=c99 ${_C_FAMILY_FLAGS_INIT}")
-set(CMAKE_C_FLAGS_DEBUG_INIT          "${CMAKE_C_FLAGS_INIT} -g")
-set(CMAKE_C_FLAGS_MINSIZEREL_INIT     "${CMAKE_C_FLAGS_INIT} -Os -DNDEBUG")
-set(CMAKE_C_FLAGS_RELEASE_INIT        "${CMAKE_C_FLAGS_INIT} -Os -DNDEBUG")
-set(CMAKE_C_FLAGS_RELWITHDEBINFO_INIT "${CMAKE_C_FLAGS_INIT} -Os -g -DNDEBUG")
+set(CMAKE_C_FLAGS_DEBUG_INIT          "-g")
+set(CMAKE_C_FLAGS_MINSIZEREL_INIT     "-Os -DNDEBUG")
+set(CMAKE_C_FLAGS_RELEASE_INIT        "-Os -DNDEBUG")
+set(CMAKE_C_FLAGS_RELWITHDEBINFO_INIT "-Os -g -DNDEBUG")
 set(CMAKE_INCLUDE_SYSTEM_FLAG_C "-isystem ")
 
 
 set(CMAKE_ASM_FLAGS_INIT  "-fno-exceptions -fno-unwind-tables -mcpu=cortex-m4 -mthumb -x assembler-with-cpp -D__thumb2__")
-set(CMAKE_ASM_FLAGS_DEBUG_INIT          "${CMAKE_ASM_FLAGS_INIT} -g")
-set(CMAKE_ASM_FLAGS_MINSIZEREL_INIT     "${CMAKE_ASM_FLAGS_INIT} -Os -DNDEBUG")
-set(CMAKE_ASM_FLAGS_RELEASE_INIT        "${CMAKE_ASM_FLAGS_INIT} -Os -DNDEBUG")
-set(CMAKE_ASM_FLAGS_RELWITHDEBINFO_INIT "${CMAKE_ASM_FLAGS_INIT} -Os -g -DNDEBUG")
+set(CMAKE_ASM_FLAGS_DEBUG_INIT          "-g")
+set(CMAKE_ASM_FLAGS_MINSIZEREL_INIT     "-Os -DNDEBUG")
+set(CMAKE_ASM_FLAGS_RELEASE_INIT        "-Os -DNDEBUG")
+set(CMAKE_ASM_FLAGS_RELWITHDEBINFO_INIT "-Os -g -DNDEBUG")
 set(CMAKE_INCLUDE_SYSTEM_FLAG_ASM  "-isystem ")
 
 # set link flags
