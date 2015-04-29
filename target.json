@@ -1,6 +1,6 @@
 {
   "name": "frdm-k64f-gcc",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "Official mbed build target for the mbed frdm-k64f development board.",
   "licenses": [
     {
