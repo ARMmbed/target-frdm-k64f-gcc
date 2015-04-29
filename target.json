@@ -29,7 +29,8 @@
     "gcc",
     "lwip",
     "lwip-k64f",
-    "eth-k64f"
+    "eth-k64f",
+    "mbed"
   ],
   "inherits": {
     "mbed-gcc": "*"
