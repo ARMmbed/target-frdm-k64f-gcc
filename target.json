@@ -1,6 +1,9 @@
 {
   "name": "frdm-k64f-gcc",
   "version": "0.0.15",
+  "inherits": {
+    "mbed-gcc": "*"
+  },
   "description": "Official mbed build target for the mbed frdm-k64f development board.",
   "licenses": [
     {
@@ -32,18 +35,9 @@
     "eth-k64f",
     "mbed"
   ],
-  "inherits": {
-    "mbed-gcc": "*"
-  },
   "toolchain": "CMake/toolchain.cmake",
   "config": {
   },
-  "debug": [
-    "valinor",
-    "--target",
-    "K64F",
-    "$program"
-  ],
   "scripts": {
     "debug": [
       "valinor",
