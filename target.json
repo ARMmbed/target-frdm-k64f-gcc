@@ -35,7 +35,7 @@
   "inherits": {
     "mbed-gcc": "*"
   },
-  "toolchain": "toolchain_inherit_simulated.cmake",
+  "toolchain": "CMake/toolchain.cmake",
   "config": {
   },
   "debug": [
