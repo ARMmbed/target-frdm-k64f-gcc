@@ -1,6 +1,6 @@
 {
   "name": "frdm-k64f-gcc",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "inherits": {
     "mbed-gcc": "*"
   },
@@ -36,8 +36,7 @@
     "mbed"
   ],
   "toolchain": "CMake/toolchain.cmake",
-  "config": {
-  },
+  "config": {},
   "scripts": {
     "debug": [
       "valinor",
