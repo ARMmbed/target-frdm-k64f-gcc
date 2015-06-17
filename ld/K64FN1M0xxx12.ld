@@ -117,7 +117,9 @@ SECTIONS
     } > FLASH
 
     /* .stack section doesn't contains any symbols. It is only
-     * used for linker to reserve space for the main stack section */
+     * used for linker to reserve space for the main stack section
+     * WARNING: .stack should come immediately after the last secure memory
+     * section.  This provides stack overflow detection. */
     .stack (NOLOAD):
     {
         __StackLimit = .;
