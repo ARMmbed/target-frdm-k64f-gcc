@@ -205,4 +205,6 @@ SECTIONS
         __HeapLimit = .;
     } > RAM
     PROVIDE(__heap_size = SIZEOF(.heap));
+    PROVIDE(SBRK_START = LOADADDR(.heap));
+    PROVIDE(KRBS_START = LOADADDR(.heap) + SIZEOF(.heap));
 }
