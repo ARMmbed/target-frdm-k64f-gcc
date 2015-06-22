@@ -11,7 +11,7 @@ set(TARGET_FRDM_K64F_GCC_TOOLCHAIN_INCLUDED 1)
 # definition that you're about to add to rely on the TARGET_LIKE_XXX
 # definitions that yotta provides based on the target.json file.
 #
-set(YOTTA_TARGET_DEFINITIONS "-DCPU_MK64FN1M0VMD12 -DTARGET_K64F -DTOOLCHAIN_GCC -DTOOLCHAIN_GCC_ARM -DMBED_OPERATORS")
+add_definitions("-DCPU_MK64FN1M0VMD12 -DTARGET_K64F")
 
 # append non-generic flags, and set K64F-specific link script
 
