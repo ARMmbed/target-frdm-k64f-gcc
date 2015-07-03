@@ -1,4 +1,4 @@
-# Copyright (C) 2014-2015 ARM Limited. All rights reserved. 
+# Copyright (C) 2014-2015 ARM Limited. All rights reserved.
 
 if(TARGET_FRDM_K64F_GCC_TOOLCHAIN_INCLUDED)
     return()
@@ -22,4 +22,3 @@ set(CMAKE_ASM_FLAGS_INIT           "${CMAKE_ASM_FLAGS_INIT} ${_CPU_COMPILATION_O
 set(CMAKE_CXX_FLAGS_INIT           "${CMAKE_CXX_FLAGS_INIT} ${_CPU_COMPILATION_OPTIONS}")
 set(CMAKE_MODULE_LINKER_FLAGS_INIT "${CMAKE_MODULE_LINKER_FLAGS_INIT} -mcpu=cortex-m4 -mthumb")
 set(CMAKE_EXE_LINKER_FLAGS_INIT    "${CMAKE_EXE_LINKER_FLAGS_INIT} -mcpu=cortex-m4 -mthumb -T\"${CMAKE_CURRENT_LIST_DIR}/../ld/K64FN1M0xxx12.ld\"") 
-
