@@ -1,6 +1,6 @@
 {
   "name": "frdm-k64f-gcc",
-  "version": "0.0.17",
+  "version": "0.0.20",
   "inherits": {
     "mbed-gcc": "*"
   },
@@ -33,6 +33,7 @@
     "lwip",
     "lwip-k64f",
     "eth-k64f",
+    "nanostack",
     "mbed"
   ],
   "toolchain": "CMake/toolchain.cmake",
