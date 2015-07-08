@@ -129,8 +129,8 @@ SECTIONS
 
     /* Set stack top to end of RAM, and stack limit move down by
      * size of stack_dummy section */
-    __StackTop = LOADADDR(.stack) + SIZEOF(.stack);
-    __StackLimit = LOADADDR(.stack);
+    __StackTop = ADDR(.stack) + SIZEOF(.stack);
+    __StackLimit = ADDR(.stack);
     PROVIDE(__stack = __StackTop);
 
     .data :
@@ -205,6 +205,6 @@ SECTIONS
         __HeapLimit = .;
     } > RAM
     PROVIDE(__heap_size = SIZEOF(.heap));
-    PROVIDE(__mbed_sbrk_start = LOADADDR(.heap));
-    PROVIDE(__mbed_krbs_start = LOADADDR(.heap) + SIZEOF(.heap));
+    PROVIDE(__mbed_sbrk_start = ADDR(.heap));
+    PROVIDE(__mbed_krbs_start = ADDR(.heap) + SIZEOF(.heap));
 }
