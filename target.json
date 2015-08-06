@@ -33,7 +33,6 @@
     "lwip",
     "lwip-k64f",
     "eth-k64f",
-    "nanostack",
     "mbed"
   ],
   "toolchain": "CMake/toolchain.cmake",
