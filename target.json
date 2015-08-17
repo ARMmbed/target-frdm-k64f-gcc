@@ -18,6 +18,10 @@
     "frdm-k64f",
     "gcc"
   ],
+  "config": {
+      "mbed-os": {
+      }
+  },
   "similarTo": [
     "frdm-k64f",
     "k64f",
@@ -36,7 +40,6 @@
     "mbed"
   ],
   "toolchain": "CMake/toolchain.cmake",
-  "config": {},
   "scripts": {
     "debug": [
       "valinor",
