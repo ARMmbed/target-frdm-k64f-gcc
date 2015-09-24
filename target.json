@@ -19,7 +19,15 @@
     "gcc"
   ],
   "config": {
-    "mbed-os": {}
+    "mbed-os": {},
+    "cmsis": {
+        "nvic": {
+          "ram_vector_address": "0x1FFF0000",
+          "flash_vector_address": "0x0",
+          "user_irq_offset": 16,
+          "user_irq_number": 86
+        }
+    }
   },
   "similarTo": [
     "frdm-k64f",
