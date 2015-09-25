@@ -19,7 +19,8 @@
     "gcc"
   ],
   "config": {
-    "mbed-os":{
+    "mbed-os": {},
+    "hardware": {
       "pins" : {
         "LED_RED" : "PTB22",
         "LED_GREEN" : "PTE26",
