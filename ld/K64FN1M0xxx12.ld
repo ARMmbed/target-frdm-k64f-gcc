@@ -56,29 +56,34 @@ SECTIONS
     /* ensure that uvisor bss is at the beginning of memory */
     .uvisor.bss (NOLOAD):
     {
-        /* protected uvisor SRAM starts here */
-        KEEP(*(.uvisor.bss.main))
-        KEEP(*(.uvisor.bss.stack))
+        . = ALIGN(32);
         __uvisor_bss_start = .;
-        *(.uvisor.bss*)
+
+        /* protected uvisor main bss */
+        . = ALIGN(32);
+        __uvisor_bss_main_start = .;
+        KEEP(*(.keep.uvisor.bss.main))
+        . = ALIGN(32);
+        __uvisor_bss_main_end = .;
+
+        /* protected uvisor secure boxes bss */
+        . = ALIGN(32);
+        __uvisor_bss_boxes_start = .;
+        KEEP(*(.keep.uvisor.bss.boxes))
+        . = ALIGN(32);
+        __uvisor_bss_boxes_end = .;
+
+        . = ALIGN(32);
         __uvisor_bss_end = .;
     } > RAM
-
-    .uvisor.data : AT(__uvisor_cfgtbl_end)
-    {
-        __uvisor_data_src = LOADADDR(.uvisor.data);
-
-        . = ALIGN(32);
-        __uvisor_data_start = .;
-        *(.uvisor.data)
-        . = ALIGN(32);
-        __uvisor_data_end = .;
-    } >RAM
 
     .text :
     {
         /* uVisor code and data */
+        . = ALIGN(4);
+        __uvisor_main_start = .;
         *(.uvisor.main)
+        __uvisor_main_end = .;
 
         *(.text*)
 
@@ -167,24 +172,27 @@ SECTIONS
 
     } >RAM AT>FLASH
 
-    /* put uvisor data flash section at the end of flash */
+    /* uvisor configuration data */
     .uvisor.secure :
     {
         . = ALIGN(32);
         __uvisor_secure_start = .;
-        KEEP(*(.uvisor.secure.keep))
-        *(.uvisor.secure)
+
+        /* uvisor secure boxes configuration tables */
         . = ALIGN(32);
-
         __uvisor_cfgtbl_start = .;
-        KEEP(*(.uvisor.cfgtbl_first*))
-        KEEP(*(.uvisor.cfgtbl*))
+        KEEP(*(.keep.uvisor.cfgtbl))
+        . = ALIGN(32);
         __uvisor_cfgtbl_end = .;
-    } >FLASH
 
-    .uvisor.end (NOLOAD): AT( LOADADDR(.uvisor.data) + SIZEOF(.uvisor.data) )
-    {
-        . = ALIGN(1024);
+        /* pointers to uvisor secure boxes configuration tables */
+        /* note: no further alignment here, we need to have the exact list of pointers */
+        __uvisor_cfgtbl_ptr_start = .;
+        KEEP(*(.keep.uvisor.cfgtbl_ptr_first))
+        KEEP(*(.keep.uvisor.cfgtbl_ptr))
+        __uvisor_cfgtbl_ptr_end = .;
+
+        . = ALIGN(32);
         __uvisor_secure_end = .;
     } >FLASH
 
