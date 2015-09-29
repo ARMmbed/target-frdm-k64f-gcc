@@ -2,7 +2,7 @@
   "name": "frdm-k64f-gcc",
   "version": "0.1.0",
   "inherits": {
-    "mbed-gcc": "*"
+    "mbed-gcc": "~0.1.0"
   },
   "description": "Official mbed build target for the mbed frdm-k64f development board.",
   "licenses": [
