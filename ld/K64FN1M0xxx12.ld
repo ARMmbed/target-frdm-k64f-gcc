@@ -192,6 +192,16 @@ SECTIONS
         KEEP(*(.keep.uvisor.cfgtbl_ptr))
         __uvisor_cfgtbl_ptr_end = .;
 
+        /* the following symbols are kept for backward compatibility and will be soon
+         * deprecated; applications actively using uVisor (__uvisor_mode == UVISOR_ENABLED)
+         * will need to use uVisor 0.8.x or above, or the security assetions will halt the
+         * system */
+        /************************/
+        __uvisor_data_src = .;
+        __uvisor_data_start = .;
+        __uvisor_data_end = .;
+        /************************/
+
         . = ALIGN(32);
         __uvisor_secure_end = .;
     } >FLASH
