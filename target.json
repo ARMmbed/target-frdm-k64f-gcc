@@ -19,7 +19,13 @@
     "gcc"
   ],
   "config": {
-    "mbed-os": {},
+    "mbed-os": {
+      "net": {
+        "stacks": {
+          "lwip": true
+        }
+      }
+    },
     "cmsis": {
       "nvic": {
         "ram_vector_address": "0x1FFF0000",
