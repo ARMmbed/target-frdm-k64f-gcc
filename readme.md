@@ -6,7 +6,8 @@ development
 board](http://www.mbed.com/en/development/hardware/boards/freescale/frdm_k64f/)
 using GCC.
 
-![k64f image](https://mbed-media.s3.amazonaws.com/frdm-k64f.jpg)
+<img src="https://mbed-media.s3.amazonaws.com/frdm-k64f.jpg" width="400">
+
 
 This target description derives from the generic
 [mbed-gcc](https://github.com/ARMmbed/target-mbed-gcc) target description,
