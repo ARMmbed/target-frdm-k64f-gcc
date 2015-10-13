@@ -72,6 +72,22 @@
         "A4": "PTC10",
         "A5": "PTC11",
         "DAC0_OUT": "0xFEFE"
+      },
+      "test-pins": {
+        "spi": {
+          "mosi": "PTD2",
+          "miso": "PTD3",
+          "sclk": "PTD1",
+          "ssel": "PTD0"
+        },
+        "i2c": {
+          "sda": "PTE25",
+          "scl": "PTE24"
+        },
+        "serial": {
+          "tx": "PTC17",
+          "rx": "PTD2"
+        }
       }
     }
   },
