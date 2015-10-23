@@ -1,3 +1,6 @@
+# 0.2.0
+ * add `.uninitialized` section for uninitialised data.
+
 # 0.1.4
  * add hardware.test-pins config to indicate which pins should be used by
    tests.
