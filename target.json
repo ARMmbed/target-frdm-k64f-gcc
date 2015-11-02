@@ -34,6 +34,9 @@
         "user_irq_number": 86
       }
     },
+    "uvisor": {
+      "present": 1
+    },
     "hardware": {
       "pins": {
         "LED_RED": "PTB22",
