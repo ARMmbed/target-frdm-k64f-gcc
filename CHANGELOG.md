@@ -1,3 +1,10 @@
+# 1.0.0
+ * derive from new
+   [kinetis-k64-gcc](https://github.com/ARMmbed/target-kinetis-k64-gcc) target
+   description: most of the toolchain description now lives there, with this
+   target description defining only the pinout and other board-specific
+   definitions.
+
 ## 0.2.2
  * add `mbed` keyword for easier discovery
 
