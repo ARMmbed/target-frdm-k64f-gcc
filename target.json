@@ -1,8 +1,8 @@
 {
   "name": "frdm-k64f-gcc",
-  "version": "0.2.2",
+  "version": "1.0.0",
   "inherits": {
-    "mbed-gcc": "~0.1.0"
+    "k64f-gcc": "^1.0.0"
   },
   "description": "Official mbed build target for the mbed frdm-k64f development board.",
   "licenses": [
@@ -26,17 +26,6 @@
           "lwip": true
         }
       }
-    },
-    "cmsis": {
-      "nvic": {
-        "ram_vector_address": "0x1FFF0000",
-        "flash_vector_address": "0x0",
-        "user_irq_offset": 16,
-        "user_irq_number": 86
-      }
-    },
-    "uvisor": {
-      "present": 1
     },
     "hardware": {
       "pins": {
@@ -97,20 +86,9 @@
   },
   "similarTo": [
     "frdm-k64f",
-    "k64f",
-    "ksdk-mcu",
-    "mk64fn1m0vmd12",
-    "mk64fn1m0",
-    "mk64fn",
-    "freescale",
-    "cortex-m4",
-    "armv7-m",
-    "arm",
-    "gcc",
     "lwip",
     "lwip-k64f",
-    "eth-k64f",
-    "mbed"
+    "eth-k64f"
   ],
   "toolchain": "CMake/toolchain.cmake",
   "scripts": {

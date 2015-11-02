@@ -1,3 +1,9 @@
+# 1.0.0
+ * derive from new [k64f-gcc](https://github.com/ARMmbed/target-k64f-gcc)
+   target description: most of the toolchain description now lives there, with
+   this target description defining only the pinout and other board-specific
+   definitions.
+
 ## 0.2.2
  * add `mbed` keyword for easier discovery
 
