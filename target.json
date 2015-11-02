@@ -1,6 +1,6 @@
 {
   "name": "frdm-k64f-gcc",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "inherits": {
     "mbed-gcc": "~0.1.0"
   },
