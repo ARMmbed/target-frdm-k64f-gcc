@@ -1,6 +1,6 @@
 {
   "name": "frdm-k64f-gcc",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "inherits": {
     "kinetis-k64-gcc": "^2.0.0"
   },
