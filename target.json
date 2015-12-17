@@ -2,7 +2,7 @@
   "name": "frdm-k64f-gcc",
   "version": "1.0.1",
   "inherits": {
-    "kinetis-k64-gcc": "^1.0.0"
+    "kinetis-k64-gcc": "^2.0.0"
   },
   "description": "Official mbed build target for the mbed frdm-k64f development board.",
   "licenses": [

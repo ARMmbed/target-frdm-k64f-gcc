@@ -1,3 +1,10 @@
+# 2.0.0
+ * Compile C++ code as C++11 (update kinetis-k64-gcc to 2.0.0)
+
+# 1.0.1
+ * Restore link script to this target (even though it is unused) as builds may
+   have cached its location. This will be removed in the future.
+
 # 1.0.0
  * derive from new
    [kinetis-k64-gcc](https://github.com/ARMmbed/target-kinetis-k64-gcc) target
