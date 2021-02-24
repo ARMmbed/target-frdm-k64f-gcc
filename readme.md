@@ -1,3 +1,7 @@
+## Deprecation note!
+
+**Please note: This repository is deprecated and it is no longer actively maintained**.
+
 ## yotta Target Description using GCC to compile for K64F Devkit
 
 Use this target description to compile [mbed
